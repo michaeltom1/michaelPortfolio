@@ -1,7 +1,7 @@
 function Contact() {
   return (
     <>
-      <section className="w-4/5 m-auto py-16">
+      <section id="Contact" className="w-4/5 m-auto py-16">
         <h1 className="text-4xl text-center font-bold text-shadow-lg">
           Contact
         </h1>

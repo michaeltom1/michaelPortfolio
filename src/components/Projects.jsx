@@ -7,7 +7,7 @@ import { RiExternalLinkLine } from "react-icons/ri";
 function Projects() {
   return (
     <>
-      <section className="w-4/5 m-auto py-16">
+      <section id="Projects" className="w-4/5 m-auto py-16">
         <h1 className="text-4xl text-center font-bold">Projects</h1>
         <div className="grid grid-cols-3 gap-8 py-8">
           <div className="h-96 bg-[#272733] rounded-md p-4">

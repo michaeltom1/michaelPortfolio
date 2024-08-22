@@ -23,7 +23,7 @@ function Nav() {
             <ul className={`${nav.ul}`}>
               {navItems.map((item) => (
                 <li key={item.id} className={`${nav.li}`}>
-                  <Link to={`#${item.id}`}>{item.id}</Link>
+                  <a href={`#${item.id}`}>{item.id}</a>
                 </li>
               ))}
             </ul>

@@ -4,7 +4,7 @@ import Buttons from "./Buttons";
 function Services() {
   return (
     <>
-      <section className="w-4/5 m-auto py-16">
+      <section id="Services" className="w-4/5 m-auto py-16">
         <h1 className="text-4xl text-center font-bold text-shadow-lg">
           Services
         </h1>
@@ -18,10 +18,7 @@ function Services() {
               <service.ico className="text-6xl group-hover:text-accent" />
               <h3 className="text-xl font-medium">{service.title}</h3>
               <p>{service.desc}</p>
-              <Buttons
-                text="Learn More"
-                other=""
-              />
+              <Buttons text="Learn More" other="" />
             </div>
           ))}
         </div>
