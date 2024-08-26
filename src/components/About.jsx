@@ -2,8 +2,8 @@ import mich from "../assets/images/mich.png"
 function About() {
   return (
     <>
-      <div id="About" className="bg-[#25262e] py-16">
-        <div className="w-4/5 m-auto h-full">
+      <div id="About" className="bg-tec py-16">
+        <section className="w-4/5 m-auto h-full">
           <h2 className="text-4xl text-center font-bold text-shadow-lg">
             About
           </h2>
@@ -24,7 +24,7 @@ function About() {
               <img src={mich} alt="" className="w-80 bg-[#1e1e22] rounded-md" />
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );

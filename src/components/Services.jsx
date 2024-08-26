@@ -1,6 +1,6 @@
 import { services } from "../data/Data";
-// import B from "./Buttons";
 import Buttons from "./Buttons";
+// import B from "./Buttons";
 function Services() {
   return (
     <>

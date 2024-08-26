@@ -1,7 +1,7 @@
 function Hero() {
   return (
     <>
-      <div>
+      <main>
         <section className="w-4/5 m-auto flex items-center h-screen font-medium text-xl text-center lg:text-start">
           <div>
             <p className=" text-2xl text-accent font-roboto">
@@ -16,7 +16,7 @@ function Hero() {
             </p>
           </div>
         </section>
-      </div>
+      </main>
     </>
   );
 }

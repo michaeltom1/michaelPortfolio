@@ -1,8 +1,8 @@
 function Contact() {
   return (
     <>
-      <section id="Contact" className="w-4/5 m-auto py-16">
-        <h1 className="text-4xl text-center font-bold text-shadow-lg">
+      <section id="contact" className="w-4/5 m-auto py-16">
+        <h1 className="text-4xl text-center font-bold">
           Contact
         </h1>
         <div className="flex justify-center pt-8">

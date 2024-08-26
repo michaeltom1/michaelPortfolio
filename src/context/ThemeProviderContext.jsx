@@ -5,7 +5,7 @@ const ThemeContext = createContext();
 
 function ThemeProviderContext({ children }) {
   return (
-    <div className={`${home.main}`}>
+    <div className={`${home.theme}`}>
       <ThemeContext.Provider value={{}}>{children}</ThemeContext.Provider>
     </div>
   );
