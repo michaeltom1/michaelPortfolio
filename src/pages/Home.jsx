@@ -1,11 +1,8 @@
 import Nav from "../components/Nav";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { mweb3 } from "../assets/assets";
 import { GrGithub } from "react-icons/gr";
-import Footer from "../components/Footer";
 import Buttons from "../components/Buttons";
-import Contact from "../components/Contact";
 import mich from "../assets/images/mich.png";
 import { services, projects } from "../data/Data";
 import { RiExternalLinkLine } from "react-icons/ri";
@@ -169,8 +166,7 @@ function Home() {
           </div>
         </section>
 
-        <footer className="bg-[#131316] py-6"
-        >
+        <footer className="bg-[#131316] py-6">
           <div className="font-medium text-center space-y-4">
             <h2 className="text-[#2ecc71] text-xl ">Designed by Michael Tom</h2>
             <p className="text-gray-400 text-xs text-center">

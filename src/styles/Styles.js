@@ -1,10 +1,15 @@
-export const globalStyles = {
-  margin: "0",
-  padding: "0",
-  color: "white",
-  backgroundColor: "blue",
-  // padding: "10px",
-};
+export const cssJs = `
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+ }
+
+`;
+
 export const home = {
   green: "text-accent",
   theme: "text-white bg-primary font-poppins selection:bg-[#2c2c75c5]",
@@ -39,4 +44,3 @@ export const servicesStyle = {
   ico: "text-6xl group-hover:text-accent",
   title: "text-xl font-medium text-accent",
 };
- 

@@ -37,7 +37,11 @@ function Nav() {
     <>
       <div className="">
         <nav
-          className={`${lastScrollTop === 0 ? "" : `bg-[#272733d5] `} ${
+          className={`${
+            lastScrollTop === 0
+              ? ""
+              : `bg-[#272733d5] backdrop-blur-lg shadow-sm`
+          } ${
             isVisible ? "translate-y-0" : "-translate-y-full"
           } duration-500  transition-all `}
         >
