@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { GrGithub } from "react-icons/gr";
+import Footer from "../components/Footer";
 import Buttons from "../components/Buttons";
 import mich from "../assets/images/mich.png";
 import { services, projects } from "../data/Data";
@@ -26,7 +27,7 @@ function Home() {
                 type: "ease-in",
               }}
             >
-              <p className={`${home.hi} hi`}>Hi am,</p>
+              <p className={`${home.hi}`}>Hi i am,</p>
               <p className={`${home.name}`}>
                 Michael Tom<span className={`${home.green}`}>.</span>
               </p>
@@ -105,7 +106,7 @@ function Home() {
                         <div>
                           <abbr title="github">
                             <Link
-                              to="https://michaeltom3.vercel.app/"
+                              to="https://github.com/Michael-T55/myWebpage"
                               target="_blank"
                             >
                               <GrGithub />
@@ -137,7 +138,7 @@ function Home() {
         <section id="contact" className={`${home.sectionCenter}`}>
           <h2 className={`${home.sectionTitle}`}>Contact</h2>
           <div className="flex justify-center pt-8">
-            <form action="" className="grid gap-4 w-1/2 font-medium">
+            <form action="" className={`flex flex-col gap-4 w-full md:w-1/2`}>
               <input
                 type="text"
                 required
@@ -165,15 +166,7 @@ function Home() {
             </form>
           </div>
         </section>
-
-        <footer className="bg-[#131316] py-6">
-          <div className="font-medium text-center space-y-4">
-            <h2 className="text-[#2ecc71] text-xl ">Designed by Michael Tom</h2>
-            <p className="text-gray-400 text-xs text-center">
-              © Copyright Michael Tom. Design And Developed By Michael
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

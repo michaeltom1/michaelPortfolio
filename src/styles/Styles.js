@@ -1,6 +1,7 @@
 export const cssJs = `
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
+
 *{
  margin: 0;
  padding: 0;
@@ -8,6 +9,14 @@ export const cssJs = `
  scroll-behavior: smooth;
  }
 
+ .rot{
+     animation: rot 0.2s ease-in;
+ }
+     
+ @keyframes rot {
+     0%{ transform: rotate(0deg);}
+     100%{transform: rotate(90deg);}
+ }
 `;
 
 export const home = {
@@ -40,7 +49,7 @@ export const about = {
 
 export const servicesStyle = {
   grid: "grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8",
-  card: "group h-96 bg-[#272733] duration-300 ease-in hover:shadow-6xl hover:shadow-accent rounded-2xl p-4 flex flex-col items-center text-center py-8 justify-between",
+  card: "group h-96 bg-[#272733] duration-300 ease-in hover:shadow-6xl hover:shadow-accent rounded-3xl p-4 flex flex-col items-center text-center py-8 justify-between",
   ico: "text-6xl group-hover:text-accent",
   title: "text-xl font-medium text-accent",
 };

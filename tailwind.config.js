@@ -8,6 +8,7 @@ export default {
         secondary: "#272733",
         accent: "#2ecc71",
         tec: "#25262e",
+        fot: "#131316",
       },
       backgroundImage: {
         mich: "url(./src/assets/images/mich.png)",
