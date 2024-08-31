@@ -4,11 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1f2028",
-        secondary: "#272733",
+        primary: "#15161c",
+        primaryLight: "#21232c",
         accent: "#2ecc71",
-        tec: "#25262e",
-        fot: "#131316",
       },
       backgroundImage: {
         mich: "url(./src/assets/images/mich.png)",

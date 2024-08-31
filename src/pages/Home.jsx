@@ -1,4 +1,4 @@
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { GrGithub } from "react-icons/gr";
@@ -7,16 +7,13 @@ import Buttons from "../components/Buttons";
 import mich from "../assets/images/mich.png";
 import { services, projects } from "../data/Data";
 import { RiExternalLinkLine } from "react-icons/ri";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 import { home, about, servicesStyle } from "../styles/Styles";
 function Home() {
   return (
     <>
-      <div>
-        <header className={`fixed w-full `}>
-          <Nav />
-        </header>
-
+      <div>   
         <main>
           <section className={`${home.mainSection}`}>
             <motion.div
@@ -39,9 +36,17 @@ function Home() {
           </section>
         </main>
 
-        <section id="about" className={`${about.bg}`}>
-          <div className={`${home.sectionCenter}`}>
-            <h2 className={`${home.sectionTitle}`}>About</h2>
+        <section id="about">
+          <div className={`${home.sectionCenter} `}>
+            <div className="relative">
+              <h2 className={`${home.sectionTitle} bg`}>About Me</h2>
+              {/* <div className="w-full h-[1px] bg-accent absolute top-[50%]"></div> */}
+
+              <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
+                <div className="w-full h-[1px] bg-accent"></div>
+                <div className="w-full h-[1px] bg-accent"></div>
+              </div>
+            </div>
             <div className={`${about.flex}`}>
               <div className={`${about.bio}`}>
                 <p>
@@ -63,14 +68,22 @@ function Home() {
         </section>
 
         <section id="services" className={`${home.sectionCenter}`}>
-          <h2 className={`${home.sectionTitle}`}>Services</h2>
+          <div className="relative">
+            <h2 className={`${home.sectionTitle} py-10`}>Services</h2>
+            <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
+              <div className="w-full h-[1px] bg-accent"></div>
+              <div className="w-full h-[1px] bg-accent"></div>
+            </div>
+          </div>
           <div className={servicesStyle.grid}>
             {services.map((service) => (
-              <div key={service.id} className={servicesStyle.card}>
+              <div
+                key={service.id}
+                className={`${servicesStyle.car} bg-primaryLight group h-96 duration-300 ease-in hover:shadow-6x hover:shadow-accent rounded-xl p-4 flex flex-col items-center text-center py-8 justify-center gap-6 borde border-accent text-[#9fa6c0]`}
+              >
                 <service.ico className={servicesStyle.ico} />
                 <h3 className={servicesStyle.title}>{service.title}</h3>
                 <p>{service.desc}</p>
-                <Buttons text="Learn More" />
               </div>
             ))}
           </div>
@@ -82,7 +95,7 @@ function Home() {
             {projects.map((project) => {
               return (
                 <div key={project.id}>
-                  <article className="h-96 bg-[#272733] hover:border hover:border-accent shadow-5xl shadow-accent   rounded-2xl p-4 transition-all duration-500 ease-in">
+                  <article className="h-96 shadow-4xl bg-primaryLight hover:-translate-x- hover:-translate-y-2 rounded-lg p-4  duration-300 ease-in transition-transform transform active:scale-95 ">
                     <div className="grid gap-2 lg:gap-4 ">
                       <div>
                         <img
@@ -131,39 +144,37 @@ function Home() {
             })}
           </div>
           <div className="text-center">
-            <Buttons text="See more" />
+            <button className="font-bold rounded-lg text-lg w-48 h-16 hover:bg-accent text-[#ffffff]">
+              <Link
+                to=""
+                className="rounded-lg flex gap-2 items-center w-48 h-16 bg-primary justify-center hover:-translate-x-1 hover:-translate-y-1 duration-500 ease-out transition-transform transform active:scale-95 border-accent border"
+              >
+                See More <MdKeyboardDoubleArrowRight className="text-3xl" />
+              </Link>
+            </button>
           </div>
         </section>
 
-        <section id="contact" className={`${home.sectionCenter}`}>
-          <h2 className={`${home.sectionTitle}`}>Contact</h2>
-          <div className="flex justify-center pt-8">
-            <form action="" className={`flex flex-col gap-4 w-full md:w-1/2`}>
-              <input
-                type="text"
-                required
-                placeholder="Name"
-                className="outline-none border-none rounded-md h-12 p-4 bg-[#272733]"
-              />
-              <input
-                type="email"
-                required
-                placeholder="Email"
-                className="outline-none border-none rounded-md h-14 p-4 bg-[#272733]"
-                autoComplete="email"
-              />
-              <textarea
-                id=""
-                name=""
-                required
-                placeholder="message"
-                className="outline-none border-none rounded-md h-60 resize-none p-4 bg-[#272733]"
-              ></textarea>
-
-              <button className="bg-gradient-to-r from-[#33d175] to-green-600 p-4 rounded-md font-medium text-xl hover:from-[#33d175c7] hover:to-green-500 text-white duration-500 ease-out">
-                <a href="mailto:email@gmail.com">Email me</a>
+        <section
+          id="contact"
+          className={`${home.sectionCente} h-scree py-20 my-20 grid place-content-center  text-center `}
+        >
+          <div className="space-y-8">
+            <h2 className={`${home.sectionTitle}`}>Get in Touch</h2>
+            <p className="text-xl py-8">
+              Ready to start a project together? Feel free to reach out via
+              email or connect with me on social media
+            </p>
+            <div className="flex justify-center ">
+              <button className="font-bold rounded-lg text-lg text-center   w-48 h-16 hover:bg-accent text-[#ffffff]">
+                <a
+                  href="mailto:mic81070@gmail.com"
+                  className="rounded-lg flex items-center w-48 h-16 bg-primary justify-center hover:-translate-x-1 hover:-translate-y-1 duration-500 ease-out transition-transform transform active:scale-95 border-accent border"
+                >
+                  👋 Say Hello
+                </a>
               </button>
-            </form>
+            </div>
           </div>
         </section>
         <Footer />
