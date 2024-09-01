@@ -91,11 +91,10 @@ export const home = {
 };
 
 export const nav = {
-  bg: "bg-secondar",
   ul: " lg:flex gap-4 hidden",
   li: "hover:text-accent",
   container:
-    "h-16 flex items-center justify-between font-medium text-lg w-4/5 m-auto",
+    "h-16 flex items-center justify-between font-medium text-lg w-4/5 m-auto pr-0 lg:pr-16",
 };
 
 export const about = {

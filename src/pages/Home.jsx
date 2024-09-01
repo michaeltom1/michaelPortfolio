@@ -20,6 +20,8 @@ function Home() {
       theme: "colored",
     });
   };
+
+
   
   return (
     <>
@@ -90,10 +92,7 @@ function Home() {
           </div>
           <div className={`${servicesStyle.grid} `}>
             {services.map((service) => (
-              <div
-                key={service.id}
-                className={`${servicesStyle.card}`}
-              >
+              <div key={service.id} className={`${servicesStyle.card}`}>
                 <service.ico className={servicesStyle.ico} />
                 <h3 className={servicesStyle.title}>{service.title}</h3>
                 <p>{service.desc}</p>
@@ -165,6 +164,7 @@ function Home() {
           id="contact"
           className={`${home.sectionCente} h-scree py-20 my-20 grid place-content-center  text-center `}
         >
+        
           <div className="space-y-8">
             <h2 className={`${home.sectionTitle}`}>Get in Touch</h2>
             <p className="text-xl py-8">
@@ -173,7 +173,7 @@ function Home() {
             </p>
             <div className="flex justify-center ">
               <Buttons
-                text="👋 Say Hello"
+                text="Say Hello 👋"
                 to="mailto:mic81070@gmail.com"
                 hideIcon
               />

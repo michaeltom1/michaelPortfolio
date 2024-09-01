@@ -4,6 +4,8 @@ import { nav } from "../styles/Styles";
 import { navItems } from "../data/Data";
 import { MdClose } from "react-icons/md";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Buttons from "./Buttons"
 
 function Nav() {
   const [menuClick, setMenuClick] = useState(false);
@@ -63,38 +65,23 @@ function Nav() {
         <hr className="line-draw absolute bottom-0 border-accent w-0" />
 
         <div className={`${nav.container}`}>
-          <div className="hover:bg-accent rounded-full p-1  duration-500 ease-out">
-            <svg
-              width="50"
-              height="50"
-              viewBox="0 0 300 300"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="150" cy="150" r="150" fill="#15161C" />
-              <path
-                d="M72.7234 72.5455H116.26L153.192 162.602H154.897L191.828 72.5455H235.365V218H201.132V128.653H199.925L164.982 217.077H143.107L108.164 128.156H106.956V218H72.7234V72.5455Z"
-                fill="#2ECC71"
-              />
-            </svg>
-          </div>
-          {/* <ul
-            className={`${nav.ul} gap-8`}>
-            {navItems.map((item) => (
-              <motion.li
-                key={item.id}
-                className={`${nav.li} transition list-disc marker:text-accent`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeInOut"
-                }}
+          <div className="bg-accent animatePing rounded-full p-1  duration-500 ease-out">
+            <Link to="/">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 300 300"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <a href={`#${item.url}`}>{item.id}</a>
-              </motion.li>
-            ))}
-          </ul>       */}
+                <circle cx="150" cy="150" r="150" fill="#15161C" />
+                <path
+                  d="M72.7234 72.5455H116.26L153.192 162.602H154.897L191.828 72.5455H235.365V218H201.132V128.653H199.925L164.982 217.077H143.107L108.164 128.156H106.956V218H72.7234V72.5455Z"
+                  fill="#2ECC71"
+                />
+              </svg>
+            </Link>
+          </div>
           <motion.ul
             className={`${nav.ul} gap-8`}
             initial={{ y: "-10rem", opacity: 0 }}
@@ -107,7 +94,7 @@ function Nav() {
             {navItems.map((item, index) => (
               <motion.li
                 key={item.id}
-                className={`${nav.li} ${
+                className={`${nav.l} ${
                   item.id === "Home" ? " " : "delay-0"
                 } transition list-disc marker:text-accent`}
                 initial={{ opacity: 0, y: -10 }}
@@ -123,8 +110,12 @@ function Nav() {
             ))}
           </motion.ul>
 
+          <div className="absolute right-10 hidden lg:block">
+            <Buttons text="resume" width="w-28" height="h-10" hideIcon />
+          </div>
+
           <div
-            className={`lg:hidden text-3xl cursor-pointer transform transition-transform duration-300 ease-in-out ${
+            className={`lg:hidden text-3xl  cursor-pointer transform transition-transform duration-300 ease-in-out ${
               menuClick ? " rotate-90" : "rotate-0"
             } `}
             onClick={handleMenuClick}
