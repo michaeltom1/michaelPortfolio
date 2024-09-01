@@ -55,7 +55,7 @@ I am a Frontend Web developer dedicated to Creating responsive and dynamic websi
 
 export const projects = [
   {
-    id: crypto.randomUUID(),
+    id: 0,
     title: "Blog Website",
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
@@ -63,7 +63,7 @@ export const projects = [
     img: mweb3,
   },
   {
-    id: crypto.randomUUID(),
+    id: 1,
     title: "Notes App",
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
@@ -71,7 +71,7 @@ export const projects = [
     ico: [GrGithub, RiExternalLinkLine],
   },
   {
-    id: crypto.randomUUID(),
+    id: 2,
     title: "movie website",
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
@@ -79,7 +79,7 @@ export const projects = [
     ico: [GrGithub, RiExternalLinkLine],
   },
   {
-    id: crypto.randomUUID(),
+    id: 3,
     title: "ecomerce Website",
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
@@ -87,7 +87,7 @@ export const projects = [
     ico: [GrGithub, RiExternalLinkLine],
   },
   {
-    id: crypto.randomUUID(),
+    id: 4,
     title: "neco Clone",
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
@@ -95,7 +95,7 @@ export const projects = [
     ico: [GrGithub, RiExternalLinkLine],
   },
   {
-    id: crypto.randomUUID(),
+    id: 5,
     title: "My Website",
     desc: "A brief description of the project, highlighting its features and purpose.",
     img: mweb3,

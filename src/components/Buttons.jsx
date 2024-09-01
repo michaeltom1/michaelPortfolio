@@ -1,14 +1,15 @@
-function Buttons({
-  text,
-  type = "submit",
-  width = "",
-  padding = "p-3 px-8 ",
-  other = "",
-  className = `${padding} w-${width} rounded-full text-center font-medium shadow-xl bg-gradient-to-r from-[#33d175] to-green-600 ${other}`,
-}) {
+import { Link } from "react-router-dom";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+
+function Buttons({ text, to, Icon = MdKeyboardDoubleArrowRight, hideIcon }) {
   return (
-    <button type={type} className={className}>
-      {text}
+    <button className="font-bold rounded-lg text-lg w-48 h-16 hover:bg-accent text-[#ffffff]">
+      <Link
+        to={to}
+        className="rounded-lg flex gap-2 items-center w-48 h-16 bg-primary justify-center hover:-translate-x-1 hover:-translate-y-1 duration-500 ease-out transition-transform transform active:scale-95 border-accent border"
+      >
+        {text} {!hideIcon && <Icon className="text-3xl" />}
+      </Link>
     </button>
   );
 }

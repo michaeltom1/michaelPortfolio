@@ -7,17 +7,13 @@ export default {
         primary: "#15161c",
         primaryLight: "#21232c",
         accent: "#2ecc71",
+        textColor: "#9fa6c0",
       },
       backgroundImage: {
         mich: "url(./src/assets/images/mich.png)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
-        avenir: ["Avenir", "sans-serif"],
-        sfmono: ['"SF Mono"', "monospace"],
-        firacode: ['"Fira Code"', "monospace"],
-        firamono: ['"Fira Mono"', "monospace"],
         roboto: ['"Roboto Mono"', "monospace"],
         sans: [
           "Poppins",
@@ -28,7 +24,7 @@ export default {
           "Arial",
           "sans-serif",
         ],
-        mono: ["SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "monospace"],
+        mono: ["Roboto Mono", "monospace"],
       },
       boxShadow: {
         "4xl": "-18px 3px 61px 9px rgba(0,0,0,0.07);",

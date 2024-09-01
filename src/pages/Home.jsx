@@ -1,4 +1,4 @@
-// import Nav from "../components/Nav";
+import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { GrGithub } from "react-icons/gr";
@@ -7,20 +7,30 @@ import Buttons from "../components/Buttons";
 import mich from "../assets/images/mich.png";
 import { services, projects } from "../data/Data";
 import { RiExternalLinkLine } from "react-icons/ri";
-import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-
 import { home, about, servicesStyle } from "../styles/Styles";
+
+
 function Home() {
+  const handleImgClick = () => {
+    toast("Hi there", {
+      position: "top-right",
+      hideProgressBar: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
+  };
+  
   return (
     <>
-      <div>   
+      <div>
         <main>
-          <section className={`${home.mainSection}`}>
+          <section className={`${home.mainSection} pt-16`}>
             <motion.div
-              initial={{ y: "7rem", x: 0, opacity: 0 }}
+              initial={{ y: 0, x: "-10rem", opacity: 0 }}
               animate={{ y: 0, x: 0, opacity: 1 }}
               transition={{
-                duration: 2,
+                duration: 0.8,
                 type: "ease-in",
               }}
             >
@@ -32,6 +42,9 @@ function Home() {
                 I am a Web Developer who specialized in creating responsive and
                 user-friendly websites.
               </p>
+              <div className="py-6">
+                <Buttons text="Learn More" />
+              </div>
             </motion.div>
           </section>
         </main>
@@ -39,13 +52,13 @@ function Home() {
         <section id="about">
           <div className={`${home.sectionCenter} `}>
             <div className="relative">
-              <h2 className={`${home.sectionTitle} bg`}>About Me</h2>
-              {/* <div className="w-full h-[1px] bg-accent absolute top-[50%]"></div> */}
-
-              <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
+              <h2 className={`${home.sectionTitle}`}>About Me</h2>
+              <br />
+              <hr className="line-draw absolute bottom-0 border-accent w-0 delay-500" />
+              {/* <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
                 <div className="w-full h-[1px] bg-accent"></div>
                 <div className="w-full h-[1px] bg-accent"></div>
-              </div>
+              </div> */}
             </div>
             <div className={`${about.flex}`}>
               <div className={`${about.bio}`}>
@@ -60,8 +73,8 @@ function Home() {
                   new technologies, and contributing to open source.
                 </p>
               </div>
-              <div className={`${about.imgContiner}`}>
-                <img src={mich} alt="" className={`${about.img}`} />
+              <div className={`${about.imgContiner}`} onClick={handleImgClick}>
+                <img src={mich} alt="" className={`${about.img} aImg`} />
               </div>
             </div>
           </div>
@@ -69,17 +82,17 @@ function Home() {
 
         <section id="services" className={`${home.sectionCenter}`}>
           <div className="relative">
-            <h2 className={`${home.sectionTitle} py-10`}>Services</h2>
+            <h2 className={`${home.sectionTitle}`}>Services</h2>
             <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
               <div className="w-full h-[1px] bg-accent"></div>
               <div className="w-full h-[1px] bg-accent"></div>
             </div>
           </div>
-          <div className={servicesStyle.grid}>
+          <div className={`${servicesStyle.grid} `}>
             {services.map((service) => (
               <div
                 key={service.id}
-                className={`${servicesStyle.car} bg-primaryLight group h-96 duration-300 ease-in hover:shadow-6x hover:shadow-accent rounded-xl p-4 flex flex-col items-center text-center py-8 justify-center gap-6 borde border-accent text-[#9fa6c0]`}
+                className={`${servicesStyle.card}`}
               >
                 <service.ico className={servicesStyle.ico} />
                 <h3 className={servicesStyle.title}>{service.title}</h3>
@@ -144,14 +157,7 @@ function Home() {
             })}
           </div>
           <div className="text-center">
-            <button className="font-bold rounded-lg text-lg w-48 h-16 hover:bg-accent text-[#ffffff]">
-              <Link
-                to=""
-                className="rounded-lg flex gap-2 items-center w-48 h-16 bg-primary justify-center hover:-translate-x-1 hover:-translate-y-1 duration-500 ease-out transition-transform transform active:scale-95 border-accent border"
-              >
-                See More <MdKeyboardDoubleArrowRight className="text-3xl" />
-              </Link>
-            </button>
+            <Buttons text="See More" />
           </div>
         </section>
 
@@ -166,14 +172,11 @@ function Home() {
               email or connect with me on social media
             </p>
             <div className="flex justify-center ">
-              <button className="font-bold rounded-lg text-lg text-center   w-48 h-16 hover:bg-accent text-[#ffffff]">
-                <a
-                  href="mailto:mic81070@gmail.com"
-                  className="rounded-lg flex items-center w-48 h-16 bg-primary justify-center hover:-translate-x-1 hover:-translate-y-1 duration-500 ease-out transition-transform transform active:scale-95 border-accent border"
-                >
-                  👋 Say Hello
-                </a>
-              </button>
+              <Buttons
+                text="👋 Say Hello"
+                to="mailto:mic81070@gmail.com"
+                hideIcon
+              />
             </div>
           </div>
         </section>

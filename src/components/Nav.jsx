@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { nav } from "../styles/Styles";
 import { navItems } from "../data/Data";
-import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
-import { log0 } from "../assets/assets";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { motion } from "framer-motion";
 
 function Nav() {
   const [menuClick, setMenuClick] = useState(false);
@@ -57,12 +56,12 @@ function Nav() {
     <>
       <nav
         ref={menuRef}
-        className={`${
-          lastScrollTop === 0 ? "" : `bg-[#272733d5]0 bg-primary backdrop-blur-lg shadow-sm`
-        } ${
+        className={`${lastScrollTop === 0 ? "" : ` bg-primary`} ${
           isVisible ? "translate-y-0" : "-translate-y-full"
-        } duration-500  transition-all z-50 `}
+        } duration-500  transition-all z-50 border- border-accent relative`}
       >
+        <hr className="line-draw absolute bottom-0 border-accent w-0" />
+
         <div className={`${nav.container}`}>
           <div className="hover:bg-accent rounded-full p-1  duration-500 ease-out">
             <svg
@@ -71,7 +70,6 @@ function Nav() {
               viewBox="0 0 300 300"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              // className="hover:-translate-x-1 hover:-translate-y-1 duration-500 ease-out transition-transform transform active:scale-95 hover:border border-accent rounded-full"
             >
               <circle cx="150" cy="150" r="150" fill="#15161C" />
               <path
@@ -80,13 +78,51 @@ function Nav() {
               />
             </svg>
           </div>
-          <ul className={`${nav.ul}`}>
+          {/* <ul
+            className={`${nav.ul} gap-8`}>
             {navItems.map((item) => (
-              <li key={item.id} className={`${nav.li}`}>
+              <motion.li
+                key={item.id}
+                className={`${nav.li} transition list-disc marker:text-accent`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut"
+                }}
+              >
                 <a href={`#${item.url}`}>{item.id}</a>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </ul>       */}
+          <motion.ul
+            className={`${nav.ul} gap-8`}
+            initial={{ y: "-10rem", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "ease-in",
+            }}
+          >
+            {navItems.map((item, index) => (
+              <motion.li
+                key={item.id}
+                className={`${nav.li} ${
+                  item.id === "Home" ? " " : "delay-0"
+                } transition list-disc marker:text-accent`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: index * 0.2, // Adjust the multiplier to control the delay between each item
+                  duration: 0.5,
+                  type: "ease-in-out",
+                }}
+              >
+                <a href={`#${item.url}`}>{item.id}</a>
+              </motion.li>
+            ))}
+          </motion.ul>
+
           <div
             className={`lg:hidden text-3xl cursor-pointer transform transition-transform duration-300 ease-in-out ${
               menuClick ? " rotate-90" : "rotate-0"
@@ -96,26 +132,26 @@ function Nav() {
             {menuClick ? <MdClose /> : <HiOutlineMenuAlt3 />}
           </div>
         </div>
-        <div
-          className={`lg:hidden  absolute ease-in duration-300 left-0 w-full bg-[#272733d5] backdrop-blur-lg -z-50 ${
-            menuClick ? "-translate-y-0 top-16" : "-translate-y-full top-0"
-          }`}
-        >
-          <ul className={``}>
-            {navItems.map((item) => (
-              <li key={item.id} className={``}>
-                <a
-                  href={`#${item.url}`}
-                  onClick={handleMenuClick}
-                  className={`p-4 block hover:bg-[#353541] hover:text-accent w-full ease-in duration-300`}
-                >
-                  {item.id}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </nav>
+      <div
+        className={`lg:hidden  absolute ease-in duration-300 left-0 w-full bg-primary border-b border-accent ${
+          menuClick ? "-translate-y-0 top-16" : "-translate-y-full top-0"
+        }`}
+      >
+        <ul className={``}>
+          {navItems.map((item) => (
+            <li key={item.id} className={``}>
+              <a
+                href={`#${item.url}`}
+                onClick={handleMenuClick}
+                className={`p-4 block hover:text-accent w-full ease-in duration-300 font-roboto`}
+              >
+                {item.id}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
