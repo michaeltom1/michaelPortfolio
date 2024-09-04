@@ -5,9 +5,12 @@ import { GrGithub } from "react-icons/gr";
 import Footer from "../components/Footer";
 import Buttons from "../components/Buttons";
 import mich from "../assets/images/mich.png";
-import { services, projects } from "../data/Data";
+import { services, projects, projectsMore } from "../data/Data";
 import { RiExternalLinkLine } from "react-icons/ri";
 import { home, about, servicesStyle } from "../styles/Styles";
+import Header from "../components/Header";
+import { useState } from "react";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
 
 function Home() {
@@ -21,11 +24,14 @@ function Home() {
     });
   };
 
-
-  
+const [seeMore, setSeeMore] = useState(false)
+  const handleSeeMore = () => {
+    setSeeMore(!seeMore)
+  }
   return (
     <>
       <div>
+        <Header />
         <main>
           <section className={`${home.mainSection} pt-16`}>
             <motion.div
@@ -45,22 +51,16 @@ function Home() {
                 user-friendly websites.
               </p>
               <div className="py-6">
-                <Buttons text="Learn More" />
+                <Buttons text="Learn More" to="#about" />
               </div>
             </motion.div>
           </section>
         </main>
-
         <section id="about">
           <div className={`${home.sectionCenter} `}>
             <div className="relative">
               <h2 className={`${home.sectionTitle}`}>About Me</h2>
-              <br />
               <hr className="line-draw absolute bottom-0 border-accent w-0 delay-500" />
-              {/* <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
-                <div className="w-full h-[1px] bg-accent"></div>
-                <div className="w-full h-[1px] bg-accent"></div>
-              </div> */}
             </div>
             <div className={`${about.flex}`}>
               <div className={`${about.bio}`}>
@@ -74,6 +74,21 @@ function Home() {
                   In my spare time, I enjoy working on side projects, learning
                   new technologies, and contributing to open source.
                 </p>
+                <p>Some technologies and tools I’ve worked with with : </p>
+                <div className="grid grid-cols-2 marker:text-accent pl-6">
+                  <ul className="text-sm list-disc grid gap-x-8">
+                    <li className="">HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React</li>
+                  </ul>
+                  <ul className="text-sm list-disc grid">
+                    <li>git</li>
+                    <li>vscode</li>
+                    <li>corelDraw</li>
+                    <li>Python</li>
+                  </ul>
+                </div>
               </div>
               <div className={`${about.imgContiner}`} onClick={handleImgClick}>
                 <img src={mich} alt="" className={`${about.img} aImg`} />
@@ -81,14 +96,10 @@ function Home() {
             </div>
           </div>
         </section>
-
         <section id="services" className={`${home.sectionCenter}`}>
           <div className="relative">
             <h2 className={`${home.sectionTitle}`}>Services</h2>
-            <div className="w-full h-[1px] grid grid-cols-2 gap-48 absolute top-[50%]">
-              <div className="w-full h-[1px] bg-accent"></div>
-              <div className="w-full h-[1px] bg-accent"></div>
-            </div>
+            <hr className="line-draw absolute bottom-0 border-accent w-0 delay-500" />
           </div>
           <div className={`${servicesStyle.grid} `}>
             {services.map((service) => (
@@ -100,9 +111,11 @@ function Home() {
             ))}
           </div>
         </section>
-
-        <section id="Projects" className={`${home.sectionCenter}`}>
-          <h2 className={`${home.sectionTitle}`}>Projects</h2>
+        <section id="projects" className={`${home.sectionCenter}`}>
+          <div className="relative">
+            <h2 className={`${home.sectionTitle}`}>Projects</h2>
+            <hr className="line-draw absolute bottom-0 border-accent w-0 delay-500" />
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
             {projects.map((project) => {
               return (
@@ -154,18 +167,77 @@ function Home() {
                 </div>
               );
             })}
+            {projectsMore.map((project) => {
+              return (
+                <div
+                  key={project.id}
+                  className={`${seeMore ? "block" : "hidden"} duration-300 ease-in `}
+                >
+                  <article className="h-96 shadow-4xl bg-primaryLight hover:-translate-x- hover:-translate-y-2 rounded-lg p-4  duration-300 ease-in transition-transform transform active:scale-95 ">
+                    <div className="grid gap-2 lg:gap-4 ">
+                      <div>
+                        <img
+                          src={project.img}
+                          alt=""
+                          className="rounded-md h-40  w-full bg-tec border-transparent"
+                        />
+                        <p className="uppercase font-firacode text-xl font-bold text-accent">
+                          {project.title}
+                        </p>
+                      </div>
+
+                      <div className="lg:space-y-2">
+                        <p className="uppercase font-firacode font-bold ">
+                          {project.desc}
+                        </p>
+                        <p className="font-roboto">{project.tags}</p>
+                      </div>
+
+                      <div className="flex text-accent text-3xl gap-4">
+                        <div>
+                          <abbr title="github">
+                            <Link
+                              to="https://github.com/Michael-T55/myWebpage"
+                              target="_blank"
+                            >
+                              <GrGithub />
+                            </Link>
+                          </abbr>
+                        </div>
+                        <div>
+                          <abbr title="Live demo">
+                            <Link
+                              to="https://michaeltom3.vercel.app/"
+                              target="_blank"
+                            >
+                              <RiExternalLinkLine />
+                            </Link>
+                          </abbr>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              );
+            })}
           </div>
           <div className="text-center">
-            <Buttons text="See More" />
+            {seeMore ? (
+              <Buttons
+                text={seeMore ? "Show less" : "Show More"}
+                onClick={handleSeeMore}
+                Icon={MdKeyboardDoubleArrowLeft}
+              />
+            ) : (
+              <Buttons
+                text={seeMore ? "Show less" : "Show More"}
+                onClick={handleSeeMore}
+              />
+            )}
           </div>
         </section>
-
-        <section
-          id="contact"
-          className={`${home.sectionCente} h-scree py-20 my-20 grid place-content-center  text-center `}
-        >
-        
-          <div className="space-y-8">
+        <section id="contact" className={home.sectionCenter}>
+          <div className="space-y-8 my-20 grid place-content-center  text-center ">
             <h2 className={`${home.sectionTitle}`}>Get in Touch</h2>
             <p className="text-xl py-8">
               Ready to start a project together? Feel free to reach out via

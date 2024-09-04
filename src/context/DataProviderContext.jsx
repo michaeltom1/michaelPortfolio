@@ -26,7 +26,6 @@ function DataProviderContext({ children }) {
       }
     };
   }, []);
-  console.log(isVisible);
 
   return (
 

@@ -1,42 +1,38 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Nav from "./components/Nav";
-import Spinner from "./components/Spinner";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Spinner from "./components/Spinner";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-
+  const location = useLocation();
   useEffect(() => {
-    // Simulate an API call or some async operation
     const fetchData = async () => {
       try {
-        // Simulate loading
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        // Data fetched successfully, stop loading
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setIsLoading(false); // stop loading even if there's an error
+        setIsLoading(false);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
 
+  const isNotFound = location.pathname !== "/" && location.pathname !== "/home";
   return (
     <>
-      {isLoading ? (
+      {!isNotFound && isLoading ? (
         <Spinner />
       ) : (
-        <>
-          <header className={`fixed w-full z-50`}>
-            <Nav />
-          </header>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
       )}
     </>
   );

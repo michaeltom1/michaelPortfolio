@@ -5,24 +5,20 @@ import { mweb3 } from "../assets/assets";
 
 export const navItems = [
   {
-    id: "Home",
-    url: "",
-  },
-  {
     id: "About",
-    url: "about",
+    url: "#about",
   },
   {
     id: "Services",
-    url: "services",
+    url: "#services",
   },
   {
     id: "Projects",
-    url: "Projects",
+    url: "#projects",
   },
   {
     id: "Contact",
-    url: "contact",
+    url: "#contact",
   },
 ];
 
@@ -102,5 +98,32 @@ export const projects = [
     tags: "HTML, CSS, JavaScript, react",
     gitIcon: FaGit,
     linkIcon: RiExternalLinkLine,
+  },
+];
+
+export const projectsMore = [
+  {
+    id: 0,
+    title: "Blog Website",
+    desc: "A brief description of the project, highlighting its features and purpose.",
+    tags: "HTML, CSS, JavaScript, react",
+    ico: [GrGithub, RiExternalLinkLine],
+    img: mweb3,
+  },
+  {
+    id: 1,
+    title: "Notes App",
+    desc: "A brief description of the project, highlighting its features and purpose.",
+    tags: "HTML, CSS, JavaScript, react",
+    img: mweb3,
+    ico: [GrGithub, RiExternalLinkLine],
+  },
+  {
+    id: 2,
+    title: "movie website",
+    desc: "A brief description of the project, highlighting its features and purpose.",
+    tags: "HTML, CSS, JavaScript, react",
+    img: mweb3,
+    ico: [GrGithub, RiExternalLinkLine],
   },
 ];

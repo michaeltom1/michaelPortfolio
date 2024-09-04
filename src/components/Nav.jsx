@@ -5,9 +5,11 @@ import { navItems } from "../data/Data";
 import { MdClose } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Buttons from "./Buttons"
+import Buttons from "./Buttons";
+import { logon } from "../assets/assets";
 
 function Nav() {
+  const [active, setActive] = useState("#");
   const [menuClick, setMenuClick] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -58,64 +60,70 @@ function Nav() {
     <>
       <nav
         ref={menuRef}
-        className={`${lastScrollTop === 0 ? "" : ` bg-primary`} ${
+        className={`${
+          lastScrollTop === 0
+            ? "bg-primary md:bg-transparent"
+            : ` bg-primary md:bg-[#15161cd8] md:backdrop-blur-md shadow-2xl`
+        } ${
           isVisible ? "translate-y-0" : "-translate-y-full"
-        } duration-500  transition-all z-50 border- border-accent relative`}
+        } duration-500  transition-all z-50 relative`}
       >
         <hr className="line-draw absolute bottom-0 border-accent w-0" />
 
         <div className={`${nav.container}`}>
           <div className="bg-accent animatePing rounded-full p-1  duration-500 ease-out">
-            <Link to="/">
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 300 300"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="150" cy="150" r="150" fill="#15161C" />
-                <path
-                  d="M72.7234 72.5455H116.26L153.192 162.602H154.897L191.828 72.5455H235.365V218H201.132V128.653H199.925L164.982 217.077H143.107L108.164 128.156H106.956V218H72.7234V72.5455Z"
-                  fill="#2ECC71"
-                />
-              </svg>
-            </Link>
+            <a href="/">
+              <img src={logon} alt="" />
+            </a>
           </div>
-          <motion.ul
-            className={`${nav.ul} gap-8`}
-            initial={{ y: "-10rem", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 0.8,
-              type: "ease-in",
-            }}
-          >
-            {navItems.map((item, index) => (
-              <motion.li
-                key={item.id}
-                className={`${nav.l} ${
-                  item.id === "Home" ? " " : "delay-0"
-                } transition list-disc marker:text-accent`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: index * 0.2, // Adjust the multiplier to control the delay between each item
-                  duration: 0.5,
-                  type: "ease-in-out",
-                }}
-              >
-                <a href={`#${item.url}`}>{item.id}</a>
-              </motion.li>
-            ))}
-          </motion.ul>
+          <div className="md:flex items-center gap-8 hidden">
+            <motion.ul
+              className={`${nav.ul} gap-8`}
+              initial={{ y: "-10rem", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.8,
+                type: "ease-in",
+              }}
+            >
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  className={`${nav.li} ${
+                    item.id === "Home" ? " " : "delay-0"
+                  } transition list-disc marker:text-accent`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: index * 0.2, // Adjust the multiplier to control the delay between each item
+                    duration: 0.5,
+                    type: "ease-in-out",
+                  }}
+                >
+                  <a
+                    href={item.url}
+                    onClick={() => setActive(item.url)}
+                    className={`${active === item.url ? "text-accent" : ""}`}
+                  >
+                    {item.id}
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
 
-          <div className="absolute right-10 hidden lg:block">
-            <Buttons text="resume" width="w-28" height="h-10" hideIcon />
+            <div className="">
+              <Buttons
+                text="resume"
+                to="/"
+                width="w-28"
+                height="h-10"
+                hideIcon
+              />
+            </div>
           </div>
 
           <div
-            className={`lg:hidden text-3xl  cursor-pointer transform transition-transform duration-300 ease-in-out ${
+            className={`md:hidden text-3xl  cursor-pointer transform transition-transform duration-300 ease-in-out ${
               menuClick ? " rotate-90" : "rotate-0"
             } `}
             onClick={handleMenuClick}
@@ -123,26 +131,34 @@ function Nav() {
             {menuClick ? <MdClose /> : <HiOutlineMenuAlt3 />}
           </div>
         </div>
+        <div
+          className={`bg-primary absolute w-full md:hidden  shadow-4xl  ${
+            menuClick ? "-translate-y-0" : "-translate-y-full hidden"
+          }`}
+        >
+          <ul className=" font-medium">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.url}
+                  onClick={() => {
+                    handleMenuClick();
+                    setActive(item.url);
+                  }}
+                  className={`hover:text-accent hover:bg-primaryLight block py-4 px-4 ${
+                    active === item.url ? "text-accent" : ""
+                  }`}
+                >
+                  {item.id}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="pl-4">
+            <Buttons text="resume" to="" width="w-28" height="h-10" hideIcon />
+          </div>
+        </div>
       </nav>
-      <div
-        className={`lg:hidden  absolute ease-in duration-300 left-0 w-full bg-primary border-b border-accent ${
-          menuClick ? "-translate-y-0 top-16" : "-translate-y-full top-0"
-        }`}
-      >
-        <ul className={``}>
-          {navItems.map((item) => (
-            <li key={item.id} className={``}>
-              <a
-                href={`#${item.url}`}
-                onClick={handleMenuClick}
-                className={`p-4 block hover:text-accent w-full ease-in duration-300 font-roboto`}
-              >
-                {item.id}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
     </>
   );
 }

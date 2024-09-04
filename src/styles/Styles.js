@@ -9,6 +9,10 @@ export const cssJs = `
  scroll-behavior: smooth;
  }
 
+ body{
+  background-color: #15161c;
+ }
+
  .rot{
      animation: rot 0.2s ease-in;
  }
@@ -82,7 +86,7 @@ export const home = {
   theme: "text-white bg-primary font-poppins selection:bg-[#2c2c75c5]",
   sectionCenter: "w-4/5 m-auto py-20",
   sectionTitle:
-    "text-4xl text-center font-bold  font-roboto text-[#9fa6c0]",
+    "text-4xl text-center font-bold  font-roboto text-[#9fa6c0] pb-4",
   mainSection:
     "w-4/5 m-auto flex items-center h-screen font-medium text-xl lg:text-start",
   hi: "text-2xl text-accent font-roboto",
@@ -91,10 +95,10 @@ export const home = {
 };
 
 export const nav = {
-  ul: " lg:flex gap-4 hidden",
+  ul: "flex gap-8",
   li: "hover:text-accent",
   container:
-    "h-16 flex items-center justify-between font-medium text-lg w-4/5 m-auto pr-0 lg:pr-16",
+    "h-16 flex items-center justify-between font-medium text-lg w-4/5 m-auto ",
 };
 
 export const about = {
