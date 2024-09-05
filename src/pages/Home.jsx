@@ -1,17 +1,14 @@
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { GrGithub } from "react-icons/gr";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Buttons from "../components/Buttons";
 import mich from "../assets/images/mich.png";
-import { services, projects, projectsMore } from "../data/Data";
-import { RiExternalLinkLine } from "react-icons/ri";
-import { home, about, servicesStyle } from "../styles/Styles";
-import Header from "../components/Header";
-import { useState } from "react";
+import { services, projects } from "../data/Data";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
-
+import { home, about, servicesStyle } from "../styles/Styles";
 
 function Home() {
   const handleImgClick = () => {
@@ -24,10 +21,10 @@ function Home() {
     });
   };
 
-const [seeMore, setSeeMore] = useState(false)
+  const [seeMore, setSeeMore] = useState(false);
   const handleSeeMore = () => {
-    setSeeMore(!seeMore)
-  }
+    setSeeMore(!seeMore);
+  };
   return (
     <>
       <div>
@@ -75,18 +72,20 @@ const [seeMore, setSeeMore] = useState(false)
                   new technologies, and contributing to open source.
                 </p>
                 <p>Some technologies and tools I’ve worked with with : </p>
-                <div className="grid grid-cols-2 marker:text-accent pl-6">
-                  <ul className="text-sm list-disc grid gap-x-8">
-                    <li className="">HTML</li>
+                <div className="flex  marker:text-accent pl-6 gap-16">
+                  <ul className="text-sm list-disc grid">
+                    <li>HTML</li>
                     <li>CSS</li>
                     <li>JavaScript (ES6+)</li>
+                    <li>tailwindcss</li>
                     <li>React</li>
                   </ul>
                   <ul className="text-sm list-disc grid">
                     <li>git</li>
                     <li>vscode</li>
-                    <li>corelDraw</li>
                     <li>Python</li>
+                    <li>firebase</li>
+                    <li>corelDraw</li>
                   </ul>
                 </div>
               </div>
@@ -111,7 +110,7 @@ const [seeMore, setSeeMore] = useState(false)
             ))}
           </div>
         </section>
-        <section id="projects" className={`${home.sectionCenter}`}>
+        {/* <section id="projects" className={`${home.sectionCenter}`}>
           <div className="relative">
             <h2 className={`${home.sectionTitle}`}>Projects</h2>
             <hr className="line-draw absolute bottom-0 border-accent w-0 delay-500" />
@@ -213,6 +212,128 @@ const [seeMore, setSeeMore] = useState(false)
                               <RiExternalLinkLine />
                             </Link>
                           </abbr>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              );
+            })}
+          </div>
+          <div className="text-center">
+            {seeMore ? (
+              <Buttons
+                text={seeMore ? "Show less" : "Show More"}
+                onClick={handleSeeMore}
+                Icon={MdKeyboardDoubleArrowLeft}
+              />
+            ) : (
+              <Buttons
+                text={seeMore ? "Show less" : "Show More"}
+                onClick={handleSeeMore}
+              />
+            )}
+          </div>
+        </section> */}
+        <section id="projects" className={`${home.sectionCenter}`}>
+          <div className="relative">
+            <h2 className={`${home.sectionTitle}`}>
+              Projects
+            </h2>
+            <hr className="line-draw absolute bottom-0 border-accent w-0 delay-500" />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
+            {projects.slice(0, 6).map((project) => {
+              return (
+                <a href={project.webLink} target="_blank" key={project.id}>
+                  <article className="h-80 shadow-4xl bg-primaryLight hover:-translate-x- hover:-translate-y-2 rounded-lg p-4o  duration-300 ease-in transition-transform transform active:scale-95 hover:scale-105 relative">
+                    <img
+                      src={project.img}
+                      alt=""
+                      className="h-full w-full object-cover rounded-lg"
+                    />
+                    <div className="absolute bg-primary opacity-70 inset-0"></div>
+                    <div className="absolute inset-0 flex  justify-center text-white bg-slate-900 bg-opacity-50">
+                      <div className=" flex flex-col p-4 relative group text-textColor ">
+                        <p className="group-hover:text-accent text-textColorLight uppercase font-semibold text-2xl font-roboto mt-8 my-4">
+                          {project.title}
+                        </p>
+                        <p>{project.desc}</p>
+                        <p>
+                          <br />A cool project showcasing my skills in web
+                          development.
+                          <br />
+                        </p>
+                        <div className="flex gap-4 items-center absolute  right-4">
+                          <Link to={project.gitLink}>
+                            <project.gitIcon
+                              fontSize={25}
+                              className="group-hover:text-accen duration-300 ease-in"
+                            />
+                          </Link>
+                          <Link to={project.webLink}>
+                            <project.linkIcon
+                              fontSize={25}
+                              className="group-hover:text-accen duration-300 ease-in"
+                            />
+                          </Link>
+                        </div>
+                        <div className="flex items-center justify-between right-0 absolute bottom-4 px-4 -slate-300 w-full">
+                          <div className="text-gray-0 text-textColo text-sm text-accent ">
+                            <p>{project.tags}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              );
+            })}
+            {projects.slice(3).map((project) => {
+              return (
+                <div
+                  key={project.id}
+                  className={`${
+                    seeMore ? "block" : "hidden"
+                  } duration-300 ease-in `}
+                >
+                  <article className="h-80 shadow-4xl bg-primaryLight hover:-translate-x- hover:-translate-y-2 rounded-lg p-4o  duration-300 ease-in transition-transform transform active:scale-95 hover:scale-105 relative">
+                    <img
+                      src={project.img}
+                      alt=""
+                      className="h-full w-full object-cover rounded-lg"
+                    />
+                    <div className="absolute bg-primary opacity-70 inset-0"></div>
+                    <div className="absolute inset-0 flex  justify-center text-white bg-slate-900 bg-opacity-50">
+                      <div className=" flex flex-col p-4 relative group text-textColor ">
+                        <p className="group-hover:text-accent text-textColorLight uppercase font-semibold text-2xl font-roboto mt-8 my-4">
+                          {project.title}
+                        </p>
+                        <p>{project.desc}</p>
+                        <p>
+                          <br />A cool project showcasing my skills in web
+                          development.
+                          <br />
+                        </p>
+                        <div className="flex gap-4 items-center absolute  right-4">
+                          <Link to={project.gitLink}>
+                            <project.gitIcon
+                              fontSize={25}
+                              className="group-hover:text-accen duration-300 ease-in"
+                            />
+                          </Link>
+                          <Link to={project.webLink}>
+                            <project.linkIcon
+                              fontSize={25}
+                              className="group-hover:text-accen duration-300 ease-in"
+                            />
+                          </Link>
+                        </div>
+                        <div className="flex items-center justify-between right-0 absolute bottom-4 px-4 -slate-300 w-full">
+                         
+                          <div className="text-gray-0 text-textColo text-sm text-accent ">
+                            <p>{project.tags}</p>
+                          </div>
                         </div>
                       </div>
                     </div>

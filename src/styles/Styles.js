@@ -86,7 +86,7 @@ export const home = {
   theme: "text-white bg-primary font-poppins selection:bg-[#2c2c75c5]",
   sectionCenter: "w-4/5 m-auto py-20",
   sectionTitle:
-    "text-4xl text-center font-bold  font-roboto text-[#9fa6c0] pb-4",
+    "text-4xl text-center font-bold  font-roboto text-textColorLight pb-4",
   mainSection:
     "w-4/5 m-auto flex items-center h-screen font-medium text-xl lg:text-start",
   hi: "text-2xl text-accent font-roboto",

@@ -1,6 +1,6 @@
-import { FaPaintBrush, FaCode, FaSearchengin, FaGit } from "react-icons/fa";
-import { GrGithub } from "react-icons/gr";
-import { RiExternalLinkLine } from "react-icons/ri";
+import { FaPaintBrush, FaCode, FaSearchengin } from "react-icons/fa";
+import { FiExternalLink, FiGithub, } from "react-icons/fi";
+
 import { mweb3 } from "../assets/assets";
 
 export const navItems = [
@@ -47,6 +47,13 @@ export const services = [
 I am a Frontend Web developer dedicated to crafting visually stunning and functionally robust digital experiences
 
 I am a Frontend Web developer dedicated to Creating responsive and dynamic websites using modern technologies like HTML, CSS, JavaScript, and React.
+  {
+    title: "Project One",
+    description: "A cool project showcasing my skills in web development.",
+    image: "https://via.placeholder.com/400x300",
+    link: "#",
+    techStack: "React, Tailwind",
+  },
 */
 
 export const projects = [
@@ -55,8 +62,11 @@ export const projects = [
     title: "Blog Website",
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
-    ico: [GrGithub, RiExternalLinkLine],
     img: mweb3,
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
     id: 1,
@@ -64,7 +74,10 @@ export const projects = [
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
     img: mweb3,
-    ico: [GrGithub, RiExternalLinkLine],
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
     id: 2,
@@ -72,7 +85,10 @@ export const projects = [
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
     img: mweb3,
-    ico: [GrGithub, RiExternalLinkLine],
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
     id: 3,
@@ -80,7 +96,11 @@ export const projects = [
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
     img: mweb3,
-    ico: [GrGithub, RiExternalLinkLine],
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
     id: 4,
@@ -88,7 +108,10 @@ export const projects = [
     desc: "A brief description of the project, highlighting its features and purpose.",
     tags: "HTML, CSS, JavaScript, react",
     img: mweb3,
-    ico: [GrGithub, RiExternalLinkLine],
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
     id: 5,
@@ -96,34 +119,42 @@ export const projects = [
     desc: "A brief description of the project, highlighting its features and purpose.",
     img: mweb3,
     tags: "HTML, CSS, JavaScript, react",
-    gitIcon: FaGit,
-    linkIcon: RiExternalLinkLine,
-  },
-];
-
-export const projectsMore = [
-  {
-    id: 0,
-    title: "Blog Website",
-    desc: "A brief description of the project, highlighting its features and purpose.",
-    tags: "HTML, CSS, JavaScript, react",
-    ico: [GrGithub, RiExternalLinkLine],
-    img: mweb3,
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
-    id: 1,
-    title: "Notes App",
+    id: 6,
+    title: "project ",
     desc: "A brief description of the project, highlighting its features and purpose.",
-    tags: "HTML, CSS, JavaScript, react",
     img: mweb3,
-    ico: [GrGithub, RiExternalLinkLine],
+    tags: "HTML, CSS, JavaScript, react",
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
   {
-    id: 2,
-    title: "movie website",
+    id: 7,
+    title: "project ",
     desc: "A brief description of the project, highlighting its features and purpose.",
-    tags: "HTML, CSS, JavaScript, react",
     img: mweb3,
-    ico: [GrGithub, RiExternalLinkLine],
+    tags: "HTML, CSS, JavaScript, react",
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
+  },
+  {
+    id: 8,
+    title: "project ",
+    desc: "A brief description of the project, highlighting its features and purpose.",
+    img: mweb3,
+    tags: "HTML, CSS, JavaScript, react",
+    gitIcon: FiGithub,
+    linkIcon: FiExternalLink,
+    gitLink: "https://github.com/Michael-T55/myWebpage",
+    webLink: "https://michaeltom3.vercel.app/",
   },
 ];

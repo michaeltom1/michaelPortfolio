@@ -7,7 +7,8 @@ export default {
         primary: "#15161c",
         primaryLight: "#21232c",
         accent: "#2ecc71",
-        textColor: "#9fa6c0",
+        textColor: "#a2a9c3",
+        textColorLight: "#e0e2eb",
       },
       backgroundImage: {
         mich: "url(./src/assets/images/mich.png)",
