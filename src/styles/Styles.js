@@ -79,6 +79,24 @@ export const cssJs = `
         }
       }
 
+      .hide {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+@media(prefers-reduced-motion) {
+    .hid {
+    transition: none;
+}
+}
 `;
 
 export const home = {
@@ -114,3 +132,11 @@ export const servicesStyle = {
   ico: "text-6xl group-hover:text-accent",
   title: "text-2xl font-bold text-accent font-roboto",
 };
+
+/*
+section {
+display: grid;
+place-items: center;
+align-content: center;
+min-height: 100vh;
+*/

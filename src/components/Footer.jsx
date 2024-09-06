@@ -6,7 +6,7 @@ import {
   FiMail,
 } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
-
+// import { useData } from "../context/DataProviderContext";
 function Footer() {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);

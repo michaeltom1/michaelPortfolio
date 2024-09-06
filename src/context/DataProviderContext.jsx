@@ -11,7 +11,6 @@ function DataProviderContext({ children }) {
         setIsVisible(true);
         observer.unobserve(entry.target); // Stop observing the element
       }
-      // setIsVisible(entry.isIntersecting);
     });
 
     const elementReff = elementRef.current;
@@ -28,7 +27,6 @@ function DataProviderContext({ children }) {
   }, []);
 
   return (
-
       <dataContext.Provider value={{ isVisible, elementRef }}>
         {children}
       </dataContext.Provider>
