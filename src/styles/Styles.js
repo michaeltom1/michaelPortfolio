@@ -58,8 +58,13 @@ export const cssJs = `
   .line-draw {animation: drawLine 1s forwards;}
 
   @keyframes drawLine {
-    to{
+    80%{
         width: 100%;
+        opacity: 1;
+
+    }
+    100%{
+        opacity: 0;
     }
   }
   @media (prefers-reduced-motion: no-preference) {
@@ -81,14 +86,12 @@ export const cssJs = `
 
       .hide {
     opacity: 0;
-    filter: blur(5px);
     transform: translateX(-100%);
     transition: all 1s;
 }
 
 .show {
     opacity: 1;
-    filter: blur(0);
     transform: translateX(0);
 }
 
@@ -96,6 +99,14 @@ export const cssJs = `
     .hid {
     transition: none;
 }
+}
+
+.hideScrollBar::-webkit-scrollbar {
+  display: none; /* For WebKit browsers (Chrome, Safari, etc.) */
+}
+.hideScrollBar {
+  overflow: scroll; /* Enable scrolling */
+  scrollbar-width: none; /* For Firefox */
 }
 `;
 

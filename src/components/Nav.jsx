@@ -4,7 +4,6 @@ import { nav } from "../styles/Styles";
 import { navItems } from "../data/Data";
 import { MdClose } from "react-icons/md";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import Buttons from "./Buttons";
 import { logon } from "../assets/assets";
 
