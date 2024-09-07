@@ -112,7 +112,6 @@ function Home() {
                 whileInView={{ x: 0}} // Slide in and fade in
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{once: true}}
-                ref={ref}
                
 
                 key={service.id}
